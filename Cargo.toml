@@ -13,6 +13,14 @@ path = "src/day1/main.rs"
 name = "day2"
 path = "src//day2/main.rs"
 
+[[bin]]
+name = "day3"
+path = "src//day3/main.rs"
+
+[[bin]]
+name = "day3_2"
+path = "src//day3_2/main.rs"
+
 [lib]
 name = "aoclib"
 path = "src/lib.rs"
