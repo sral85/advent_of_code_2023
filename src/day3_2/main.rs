@@ -30,7 +30,7 @@ fn collect_number(idx: usize, v: &Vec<char>) -> Option<u32> {
 
     // Collect right bound
     let mut right_idx = idx;
-    while right_idx + 1 < v.len() && v[right_idx+1].is_digit(10) {
+    while right_idx + 1 < v.len() && v[right_idx + 1].is_digit(10) {
         right_idx += 1;
     }
     Some(
@@ -73,19 +73,21 @@ fn main() -> Result<(), Error> {
                 .filter(|(x, y)| engine[*x][*y].is_digit(10));
             for (x, y) in iter {
                 if let Some(number) = collect_number(y, &engine[x]) {
-                    map.entry((row_idx, col_idx)).or_insert(HashSet::new()).insert(number);
+                    map.entry((row_idx, col_idx))
+                        .or_insert(HashSet::new())
+                        .insert(number);
                 }
             }
         }
     }
 
-    let result: u32 = map.into_iter()
+    let result: u32 = map
+        .into_iter()
         .filter(|(_key, val)| val.len() == 2)
         .map(|(_key, val)| val.iter().product::<u32>())
         .sum();
 
     println!("{:?}", result);
-    
-    Ok(())
 
+    Ok(())
 }
