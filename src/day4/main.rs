@@ -60,9 +60,7 @@ fn main() -> Result<(), Error> {
         }
     }
 
-    let result: usize = scores.iter()
-    .map(|sc| sc.count)
-    .sum();
+    let result: usize = scores.iter().map(|sc| sc.count).sum();
 
     println!("{:?}", result);
     Ok(())
